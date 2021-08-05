@@ -15,7 +15,6 @@ public class CreateAnAccount {
     @FindBy (id = "SubmitCreate")
     private WebElement createAnAccountButton;
 
-
     public CreateAnAccount  (WebDriver newDriver) {
         this.driver = newDriver;
         PageFactory.initElements(driver, this);
