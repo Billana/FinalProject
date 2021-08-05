@@ -23,7 +23,7 @@ public class PersonalInformationTest {
       driver = new ChromeDriver();
       projectPage = new PersonalInformation(driver);
       driver.get(autenthicationPage);
-      projectPage.inputEmailAddress("cenane6452@186site.com");
+      projectPage.inputEmailAddress("cenane6452@186sites.com");
       projectPage.CreateAnAccountFinish();
     }
   

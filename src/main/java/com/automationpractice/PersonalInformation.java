@@ -65,7 +65,7 @@ import org.openqa.selenium.support.ui.Select;
 
 
     public void inputEmailAddress(String testUser){
-        emailAddress.sendKeys("cenane6452@186site.com");
+        emailAddress.sendKeys("cenane6452@186sites.com");
     }
     public void CreateAnAccountFinish(){
         createAnAccountButton.click();

@@ -29,7 +29,7 @@ public class CreateAnAccountTest {
   
     @Test
     public void CreateAnAccount() {
-        projectPage.inputEmailAddress("cenane6452@186site.com");
+        projectPage.inputEmailAddress("cenane6452@186sites.com");
         projectPage.CreateAnAccountFinish();
         softAssertHellper.assertEquals(driver.getCurrentUrl(), enterDataPage);
     }
