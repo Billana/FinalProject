@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SignUp {
+public class SignInPage {
     private static String url = "http://automationpractice.com/index.php";
     private WebDriver driver;
 
@@ -13,7 +13,7 @@ public class SignUp {
     private WebElement signInButton;
 
 
-    public SignUp (WebDriver newDriver) {
+    public SignInPage (WebDriver newDriver) {
         this.driver = newDriver;
         PageFactory.initElements(driver, this);
     }
@@ -23,7 +23,7 @@ public class SignUp {
     }
 
     public static void setUrl(String url) {
-        SignUp.url = url;
+        SignInPage.url = url;
     }
 
     public void SignInButton() {
