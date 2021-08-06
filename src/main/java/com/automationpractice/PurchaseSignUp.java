@@ -11,10 +11,10 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Purchase {
+public class PurchaseSignUp {
     private static String url = "http://automationpractice.com/index.php";
     private WebDriver driver;
-    public Purchase (WebDriver newDriver) {
+    public PurchaseSignUp (WebDriver newDriver) {
         this.driver = newDriver;
         PageFactory.initElements(driver, this);
     }
@@ -24,7 +24,7 @@ public class Purchase {
     }
 
     public static void setUrl(String url) {
-        Purchase.url = url;
+        PurchaseSignUp.url = url;
     }
 
     @FindBy (linkText = "Faded Short Sleeve T-shirts") 
@@ -44,18 +44,48 @@ public class Purchase {
 
     @FindBy (id = "color_13")
     private WebElement color;
-    
+
     @FindBy (id = "add_to_cart")
     private WebElement addToCartButton;
 
-    @FindBy(id = "email")
+    @FindBy(id = "email_create")
     private WebElement emailAddress;
+
+    @FindBy(id = "SubmitCreate")
+    private WebElement createAnAccountButton;
+
+    @FindBy(id = "customer_firstname")
+    private WebElement customerFirstName;
+
+    @FindBy(id = "customer_lastname")
+    private WebElement customerLastName;
 
     @FindBy(id = "passwd")
     private WebElement password;
 
-    @FindBy (id = "SubmitLogin")
-    private WebElement signInButton;
+    @FindBy(id = "address1")
+    private WebElement address;
+
+    @FindBy(id = "city")
+    private WebElement city;
+
+    @FindBy(id = "uniform-id_state")
+    private WebElement state;
+
+    @FindBy(id = "postcode")
+    private WebElement postalCode;
+
+    @FindBy(id = "uniform-id_country")
+    private WebElement country;
+
+    @FindBy(id = "phone_mobile")
+    private WebElement phone;
+
+    @FindBy(id = "alias")
+    private WebElement address2;
+
+    @FindBy(id = "submitAccount")
+    private WebElement registerButton;
 
     public void firstProductOpen() {
         firstProduct.click();
@@ -101,14 +131,26 @@ public class Purchase {
         proceedToCheckout.click();      
     } 
 
-    public void logIn () {
-        emailAddress.sendKeys("cenane6452@186site.com");
-        password.sendKeys("6452ane!");
-        signInButton.click();
+    public void signUp () {
+        emailAddress.sendKeys("cenane6452@186sitesa.com");        
+        createAnAccountButton.click();
     }
-    public void nextStep3 () {
-        WebElement proceedToCheckout1 = driver.findElement(By.cssSelector("#center_column > form > p > button"));
-        proceedToCheckout1.click();  
+
+    public void personalInformation () {
+        customerFirstName.sendKeys("Cen");
+        customerLastName.sendKeys("Ane");        
+        password.sendKeys("6452ane!");
+        address.sendKeys("Somewhere 1");
+        city.sendKeys("New York");
+        state.click(); 
+        Select state = new Select(driver.findElement(By.id("id_state")));
+        state.selectByValue("32");
+        postalCode.sendKeys("10872");
+        country.click();
+        Select country = new Select(driver.findElement(By.id("id_country")));
+        country.selectByValue("21");
+        phone.sendKeys("01234567891");
+        registerButton.click();
     }
 
     public void nextStep4 () {

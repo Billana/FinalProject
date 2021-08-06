@@ -9,9 +9,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class PurchaseTest {
+public class PurchaseTestSignUp {
     private WebDriver driver;
-    private Purchase projectPage;
+    private PurchaseSignUp projectPage;
     private SoftAssert softAssertHellper;
     private String startPageUrl = "http://automationpractice.com/index.php";
   
@@ -19,10 +19,9 @@ public class PurchaseTest {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        projectPage = new Purchase(driver);
+        projectPage = new PurchaseSignUp(driver);
         driver.get(startPageUrl);
         softAssertHellper = new SoftAssert();
-
     }
 
     @Test
@@ -33,12 +32,12 @@ public class PurchaseTest {
         projectPage.addToCart();
         projectPage.proceedToCheckout();
         projectPage.nextStep2();
-        projectPage.logIn();
-        projectPage.nextStep3();
+        projectPage.signUp();
+        projectPage.personalInformation();
         projectPage.nextStep4();
         projectPage.payByWire();
         projectPage.confirmOrder();
-        softAssertHellper.assertEquals(driver.getCurrentUrl(),"http://automationpractice.com/index.php?controller=order-confirmation&id_cart=3525001&id_module=3&id_order=349524&key=071600e0c0ee6ec2f40300ce63e3452f");
+        softAssertHellper.assertEquals(driver.getCurrentUrl(),"");
 
 
     }
