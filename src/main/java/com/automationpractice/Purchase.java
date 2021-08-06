@@ -86,16 +86,30 @@ public class Purchase {
         addToCartButton.click();
     }
 
-    public void popUpMessage () {
+    public void proceedToCheckout () {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("layer_cart")));
 
-        // WebElement cartModalElement = driver.findElement(By.id("layer_cart"));
-
-        // WebElement cartHeading = cartModalElement.findElement(By.cssSelector("div.layer_cart_cart > h2"));
-        // softAssertHellper.assertEquals("Product successfully added to your shopping cart", cartHeading.getText());
-
+        WebElement proceedToCheckout = driver.findElement(By.cssSelector("div.button-container > a"));
+        proceedToCheckout.click();
     }
+
+    public void nextStep2 () {
+        WebElement proceedToCheckout = driver.findElement(By.cssSelector("p.cart_navigation.clearfix > a.button.btn.btn-default.standard-checkout.button-medium"));
+        proceedToCheckout.click();  
+    }
+    
+    public void nextStep3 () {
+        WebElement proceedToCheckout1 = driver.findElement(By.cssSelector("p.cart_navigation.clearfix > a.button.btn.btn-default.standard-checkout.button-medium"));
+        proceedToCheckout1.click();  
+    }
+
+    // public void nextStep4 () {
+    //     WebElement proceedToCheckout = driver.findElement(By.cssSelector("#center_column > form > p > button"));
+    //     proceedToCheckout.click();   
+    // }
+   
+
 
     
 }

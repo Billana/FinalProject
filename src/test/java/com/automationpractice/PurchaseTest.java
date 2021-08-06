@@ -2,19 +2,19 @@ package com.automationpractice;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.net.UrlChecker;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import com.automationpractice.LogInPageTest;
 
 public class PurchaseTest {
     private WebDriver driver;
     private Purchase projectPage;
     private String startPageUrl = "http://automationpractice.com/index.php";
+    private LogInPageTest loginPage;
   
     @BeforeTest
     public void setUp() {
@@ -31,7 +31,12 @@ public class PurchaseTest {
         projectPage.colorSelect();
         //projectPage.addToWishList();
         projectPage.addToCart();
-        projectPage.popUpMessage();
+        projectPage.proceedToCheckout();
+        projectPage.nextStep2();
+        loginPage = new LogInPageTest();
+        loginPage.personalInformation();
+        //projectPage.nextStep3();
+
     }
 
     @AfterTest
