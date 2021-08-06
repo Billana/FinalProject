@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
+
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -54,9 +55,6 @@ public class Purchase {
     @FindBy (id = "add_to_cart")
     private WebElement addToCartButton;
 
-    @FindBy (id = "layer_cart")
-    private WebElement popUpMessage;
-
     public void firstProductOpen() {
         firstProduct.click();
     }
@@ -88,12 +86,15 @@ public class Purchase {
         addToCartButton.click();
     }
 
-    public void cartLayer () {
+    public void popUpMessage () {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By) popUpMessage));
-        popUpMessage.findElement(By.cssSelector("div.layer_cart_cart > h2"));
-        softAssertHellper = new SoftAssert();
-        softAssertHellper.assertEquals("There is 1 item in your cart.", popUpMessage.getText());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("layer_cart")));
+
+        // WebElement cartModalElement = driver.findElement(By.id("layer_cart"));
+
+        // WebElement cartHeading = cartModalElement.findElement(By.cssSelector("div.layer_cart_cart > h2"));
+        // softAssertHellper.assertEquals("Product successfully added to your shopping cart", cartHeading.getText());
+
     }
 
     

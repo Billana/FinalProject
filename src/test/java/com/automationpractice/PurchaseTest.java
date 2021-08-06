@@ -28,10 +28,10 @@ public class PurchaseTest {
     public void Purchase() {
         projectPage.firstProductOpen();
         projectPage.sizeSelect();
-        // projectPage.colorSelect();
+        projectPage.colorSelect();
         //projectPage.addToWishList();
-        // projectPage.addToCart();
-        // projectPage.cartLayer();
+        projectPage.addToCart();
+        projectPage.popUpMessage();
     }
 
     @AfterTest
