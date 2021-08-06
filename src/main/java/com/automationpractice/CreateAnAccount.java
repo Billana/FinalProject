@@ -12,7 +12,7 @@ public class CreateAnAccount {
     @FindBy(id = "email_create")
     private WebElement emailAddress;
 
-    @FindBy (id = "SubmitCreate")
+    @FindBy(id = "SubmitCreate")
     private WebElement createAnAccountButton;
 
     public CreateAnAccount  (WebDriver newDriver) {
