@@ -34,6 +34,8 @@ public class PurchaseTest {
         projectPage.logIn();
         projectPage.nextStep3();
         projectPage.nextStep4();
+        projectPage.payByWire();
+        projectPage.confirmOrder();
 
 
     }

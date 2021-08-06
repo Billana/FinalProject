@@ -120,8 +120,16 @@ public class Purchase {
         WebElement proceedToCheckout2 = driver.findElement(By.cssSelector("#form > p > button"));
         proceedToCheckout2.click(); 
     }
-   
 
+    public void payByWire () {
+        WebElement payButton = driver.findElement(By.cssSelector("#HOOK_PAYMENT > div:nth-child(1) > div > p > a"));
+        payButton.click(); 
+    }
+
+    public void confirmOrder () {
+        WebElement confirmButton = driver.findElement(By.cssSelector("#cart_navigation > button > span"));
+    confirmButton.click(); 
+    }
 
     
 }
