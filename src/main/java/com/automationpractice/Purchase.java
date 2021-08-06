@@ -6,8 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
-
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -16,8 +14,6 @@ import org.openqa.selenium.WebDriver;
 public class Purchase {
     private static String url = "http://automationpractice.com/index.php";
     private WebDriver driver;
-    private SoftAssert softAssertHellper;
-
     public Purchase (WebDriver newDriver) {
         this.driver = newDriver;
         PageFactory.initElements(driver, this);
@@ -54,6 +50,15 @@ public class Purchase {
 
     @FindBy (id = "add_to_cart")
     private WebElement addToCartButton;
+
+    @FindBy(id = "email")
+    private WebElement emailAddress;
+
+    @FindBy(id = "passwd")
+    private WebElement password;
+
+    @FindBy (id = "SubmitLogin")
+    private WebElement signInButton;
 
     public void firstProductOpen() {
         firstProduct.click();
@@ -96,18 +101,25 @@ public class Purchase {
 
     public void nextStep2 () {
         WebElement proceedToCheckout = driver.findElement(By.cssSelector("p.cart_navigation.clearfix > a.button.btn.btn-default.standard-checkout.button-medium"));
-        proceedToCheckout.click();  
+        proceedToCheckout.click();      
+    } 
+
+    public void logIn () {
+        emailAddress.sendKeys("cenane6452@186site.com");
+        password.sendKeys("6452ane!");
+        signInButton.click();
     }
-    
     public void nextStep3 () {
-        WebElement proceedToCheckout1 = driver.findElement(By.cssSelector("p.cart_navigation.clearfix > a.button.btn.btn-default.standard-checkout.button-medium"));
+        WebElement proceedToCheckout1 = driver.findElement(By.cssSelector("#center_column > form > p > button"));
         proceedToCheckout1.click();  
     }
 
-    // public void nextStep4 () {
-    //     WebElement proceedToCheckout = driver.findElement(By.cssSelector("#center_column > form > p > button"));
-    //     proceedToCheckout.click();   
-    // }
+    public void nextStep4 () {
+        WebElement checkbox = driver.findElement(By.id("cgv"));
+        checkbox.click();  
+        WebElement proceedToCheckout2 = driver.findElement(By.cssSelector("#form > p > button"));
+        proceedToCheckout2.click(); 
+    }
    
 
 

@@ -31,7 +31,7 @@ public class LogInPageTest {
         projectPage.inputEmailAddress("cenane6452@186site.com");
         projectPage.inputPassword("6452ane!");
         projectPage.signInToAccount();
-        //softAssertHellper.assertEquals(driver.getCurrentUrl(), accountPage);
+        softAssertHellper.assertEquals(driver.getCurrentUrl(), accountPage);
     }
 
     @AfterTest
